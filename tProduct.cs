@@ -17,8 +17,8 @@ namespace prjMvcDemo
     public partial class tProduct
     {
         public int fId { get; set; }
-        [Required(ErrorMessage ="產品名稱是必填欄位")]
-        [DisplayName("品名")]
+        [Required(ErrorMessage ="產品名稱是必填欄位")]//必填欄位
+        [DisplayName("品名")]//指定屬性名稱顯示  ，書本第七章24頁 有驗證相關說明
         public string fName { get; set; }
         [DisplayName("庫存量")]
         public Nullable<int> fQty { get; set; }

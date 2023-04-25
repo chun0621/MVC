@@ -21,7 +21,8 @@
             序
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fName)
+            @Html.DisplayNameFor(model => model.fName) 
+            @*不直接改為中文來中文化，是因為這個屬性不指這張表有，透過屬性表設定來讓系統全部自動轉換*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.fQty)

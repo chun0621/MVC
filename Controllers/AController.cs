@@ -32,8 +32,10 @@ namespace prjMvcDemo.Controllers
 
 
         //在不同瀏覽器時，次數會分別計算
+        //獲得session時，還有當下時間，若下次session變更>20分則會重置
         public ActionResult showCountBySession()
         {
+            //這邊不使用全域變數
             int count = 0;
             if (Session["COUNT"] != null)
                 count = (int)Session["COUNT"];

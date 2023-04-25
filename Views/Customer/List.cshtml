@@ -14,9 +14,10 @@
     </form>*@
 
 @*使用Html Helper語法*@
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
-    @:關鍵字 @Html.TextBox("txtKeyword")<input type="submit" value="查詢" />
+    @:關鍵字 @Html.TextBox("txtKeyword")
+    <input type="submit" value="查詢" />
 }
 
 <p><a href="~/Customer/Create" class="btn btn-primary">+新建資料</a></p>
@@ -47,13 +48,16 @@
                 <td>@t.fEmail</td>
                 <td>@t.fAddress</td>
                 <td>@t.fPassword</td>
-                <td>@Html.ActionLink("修改", "Edit", "Customer", new { id = t.fId }, new { @class = "btn btn-success"})</td>
+                <td>@Html.ActionLink("修改", "Edit", "Customer", new { id = t.fId }, new { @class = "btn btn-success" })</td>
                 @*<td><a href="~/Customer/Delete/?id=@t.fId">刪除</a></td>*@
                 @*使用Html Helper語法*@
-                <td>@Html.ActionLink("刪除", "Delete", "Customer", new { id = t.fId }, new { onclick = "return confirm('確定要刪除嗎?')" ,Class="btn btn-danger"})</td>
+                <td>@Html.ActionLink("刪除", "Delete", "Customer", new { id = t.fId }, new { onclick = "return confirm('確定要刪除嗎?')", Class = "btn btn-danger" })</td>
 
             </tr>
         }
     }
 </table>
 
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -44,18 +44,21 @@ namespace prjMvcDemo.Controllers
         }
 
         [HttpPost]
+        //畫面上的物件，非共用的view物件(View Model)，稱MVVM 
         public ActionResult AddToCart(CAddToCarViewModel vm)
         {
+            //撈產品
             dbDemoEntities db = new dbDemoEntities();
             tProduct prod = db.tProduct.FirstOrDefault(t => t.fId == vm.txtFId);
             if (prod != null)
             {
+                //寫入資料表(tShoppingCart),建立實體化
                 tShoppingCart x =new tShoppingCart();
                 x.fProductId = vm.txtFId;
                 x.fPrice = prod.fPrice;
-                x.fDate = DateTime.Now.ToString("yyyyMMddHHmmss");
+                x.fDate = DateTime.Now.ToString("yyyyMMddHHmmss");//因為用資料型別為nvarchar，所以要格式化
                 x.fCount = vm.txtCount;
-                x.fCustomerId = 1;
+                x.fCustomerId = 1;//會員系統尚未寫，先以1暫代
                 db.tShoppingCart.Add(x);
                 db.SaveChanges();
             }
