@@ -1,0 +1,40 @@
+﻿@*
+@後面轉換成C#語法
+@{ } ,{}內的程式碼會轉換成C#育法
+    *@
+@{
+    ViewBag.Title = "showByFid";
+    string photo = "non.jpg";
+    if (ViewBag.KK != null)
+    {
+        photo = ViewBag.KK.fId + ".jpg";
+    }
+
+}
+
+<h2>客戶資料查詢範例</h2>
+
+@*
+在@{}內 遇到<>會變回html語法
+若要強制變回html語法，則是用 @:
+    *@ 
+@{
+    if (ViewBag.KK != null)
+    {
+        <h3>@ViewBag.KK.fName</h3>
+        <p>
+            <img src="~/Images/@photo" width="180" height="150" />
+        </p>
+        <p>
+            @ViewBag.KK.fPhone
+        </p>
+    }
+    else
+    {
+        <h3>沒有符合條件的資料</h3>
+    }
+
+}
+
+
+

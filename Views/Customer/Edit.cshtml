@@ -1,0 +1,43 @@
+﻿@model prjMvcDemo.Models.CCustomers
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>客戶資料修改作業</h2>
+<form action="~/Customer/Edit" method="post">
+    @*系統欄位不要顯示在UI上，所以type用隱藏*@
+    <input type="hidden" name="fId" value="@Model.fId" />
+    <p>
+        姓名
+        <br />
+        @*將name的名稱跟屬性名稱一樣，就可以直接帶入不用特別new出來*@
+        <input type="text" name="fName" value="@Model.fName" />
+    </p>
+    <p>
+        電話
+        <br />
+        <input type="text" name="fPhone" value="@Model.fPhone" />
+    </p>
+    <p>
+        電子郵件
+        <br />
+        <input type="text" name="fEmail" value="@Model.fEmail" />
+    </p>
+    <p>
+        地址
+        <br />
+        <input type="text" name="fAddress" value="@Model.fAddress" />
+    </p>
+    <p>
+        密碼
+        <br />
+        <input type="text" name="fPassword" value="@Model.fPassword" />
+    </p>
+    <p>
+        <input type="submit" value="送出並儲存" />
+    </p>
+
+</form>
+
+
+

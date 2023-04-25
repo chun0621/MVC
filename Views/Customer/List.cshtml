@@ -1,0 +1,59 @@
+﻿@using prjMvcDemo.Models
+@model List<CCustomers>
+@*沒有using的寫法*@
+@*@model List<prjMvcDemo.Models.CCustomers>*@
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>客戶資料一覽表</h2>
+@*正常html寫法*@
+@*<form method="post">關鍵字
+        <input type="text" name="txtKeyword" />
+        <input type="submit" value="查詢" />
+    </form>*@
+
+@*使用Html Helper語法*@
+@using (Html.BeginForm()) 
+{
+    @:關鍵字 @Html.TextBox("txtKeyword")<input type="submit" value="查詢" />
+}
+
+<p><a href="~/Customer/Create" class="btn btn-primary">+新建資料</a></p>
+<table border="1" class="table table-striped table-hover">
+    @*設定表單標題*@
+    <thead>
+        <tr>
+            <th>序號</th>
+            <th>姓名</th>
+            <th>電話</th>
+            <th>電子郵件</th>
+            <th>地址</th>
+            <th>密碼</th>
+            <th>修改</th>
+            <th>刪除</th>
+        </tr>
+    </thead>
+    @*透過迴圈將所有資料加入*@
+    @{
+        int count = 0;
+        foreach (CCustomers t in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@t.fName</td>
+                <td>@t.fPhone</td>
+                <td>@t.fEmail</td>
+                <td>@t.fAddress</td>
+                <td>@t.fPassword</td>
+                <td>@Html.ActionLink("修改", "Edit", "Customer", new { id = t.fId }, new { @class = "btn btn-success"})</td>
+                @*<td><a href="~/Customer/Delete/?id=@t.fId">刪除</a></td>*@
+                @*使用Html Helper語法*@
+                <td>@Html.ActionLink("刪除", "Delete", "Customer", new { id = t.fId }, new { onclick = "return confirm('確定要刪除嗎?')" ,Class="btn btn-danger"})</td>
+
+            </tr>
+        }
+    }
+</table>
+
