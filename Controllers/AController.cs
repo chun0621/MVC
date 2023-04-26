@@ -14,6 +14,20 @@ namespace prjMvcDemo.Controllers
     {
         static int count = 0;
 
+        public ActionResult uplodDemo()
+        { 
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult uplodDemo(HttpPostedFileBase photo)
+        {
+            photo.SaveAs(@"C:\QuickNote\kuo.jpg");
+            return View();
+        }
+
+
+
         public ActionResult showCountByCookie()
         {
             int count = 0;

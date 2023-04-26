@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "uplodDemo";
+}
+
+<h2>uplodDemo</h2>
+
+<form method="post" enctype="multipart/form-data"> @*上傳指令的格式寫法*@
+    <input type="file" name="photo" /> @*name的名稱要跟 HttpPostedFileBase 的參數一樣*@
+    <input type="submit" value="開始上傳" />
+
+</form>
+

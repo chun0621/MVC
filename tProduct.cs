@@ -13,11 +13,12 @@ namespace prjMvcDemo
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.Web;
 
     public partial class tProduct
     {
         public int fId { get; set; }
-        [Required(ErrorMessage ="產品名稱是必填欄位")]//必填欄位
+        [Required(ErrorMessage = "產品名稱是必填欄位")]//必填欄位
         [DisplayName("品名")]//指定屬性名稱顯示  ，書本第七章24頁 有驗證相關說明
         public string fName { get; set; }
         [DisplayName("庫存量")]
@@ -26,5 +27,7 @@ namespace prjMvcDemo
         public Nullable<decimal> fCost { get; set; }
         [DisplayName("售價")]
         public Nullable<decimal> fPrice { get; set; }
+        public string fImagePath { get; set; }
+        public HttpPostedFileBase photo { get; set; }
     }
 }

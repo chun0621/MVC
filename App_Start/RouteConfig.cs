@@ -18,8 +18,8 @@ namespace prjMvcDemo
                 url: "{controller}/{action}/{id}",
                 defaults: new
                 {
-                    controller = "Product",
-                    action = "List",
+                    controller = "Common",
+                    action = "Login",
                     id = UrlParameter.Optional
                 });
 

@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.UI.WebControls.WebParts;
 
 namespace prjMvcDemo.Models
@@ -174,6 +175,17 @@ namespace prjMvcDemo.Models
             List<SqlParameter> paras = new List<SqlParameter>();
             paras.Add(new SqlParameter("K_KEYWORD", "%"+(object)keyword+"%")); //模糊查詢要加 %{}%        
             return queryBySql(sql,paras);
+        }
+
+        internal CCustomers queryByEmail(string email)
+        {
+            string sql = "SELECT * FROM tCustomer WHERE fEmail=@K_FEMAIL";
+            List<SqlParameter> paras = new List<SqlParameter>();
+            paras.Add(new SqlParameter("K_FEMAIL", (object)email));
+            List<CCustomers> list = queryBySql(sql, paras);
+            if (list.Count == 0)
+                return null;
+            return list[0];
         }
     }
 
