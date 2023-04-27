@@ -14,6 +14,8 @@ namespace prjMvcDemo.Controllers
         public ActionResult CartView()
         {
             //新增購物車cart 用session紀錄
+            //as 是用來(隱式)轉型用的，若物件無法轉型的會回傳null
+            //用(List<CShoppingCartItem>)來(明確)轉型也是可以，但若無見無法轉型則會拋出異常
             List<CShoppingCartItem> cart = 
                 Session[CDictionary.SK_PURCHASED_PRODUCTS_LIST] as List<CShoppingCartItem>;
             //如果購物車為空，則返回產品列表

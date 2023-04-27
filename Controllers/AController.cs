@@ -116,7 +116,7 @@ namespace prjMvcDemo.Controllers
             return "Hello ASP.NET MVC";
         }
 
-        [NonAction]
+        //[NonAction]
         //往下無論行數離最近的方法無法被網址使用
         public string lotto() 
         {
